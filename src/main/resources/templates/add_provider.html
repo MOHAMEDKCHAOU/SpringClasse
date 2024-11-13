@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Provider</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container my-5">
+    <h3>Add Provider</h3>
+    <div class="card">
+        <div class="card-body">
+            <form th:action="@{/saveProvider}" th:object="${ProviderForm}" method="post">
+                <!-- Fields from User -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Enter name" required>
+                </div>
+                <div class="form-group">
+                    <label for="salary">Salary</label>
+                    <input type="number" th:field="*{salary}" class="form-control" id="salary" placeholder="Enter salary" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" th:field="*{phone}" class="form-control" id="phone" placeholder="Enter phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" th:field="*{age}" class="form-control" id="age" placeholder="Enter age" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Enter password" required>
+                </div>
+
+                <!-- Fields specific to Provider -->
+                <div class="form-group">
+                    <label for="matricule">Matricule</label>
+                    <input type="text" th:field="*{matricule}" class="form-control" id="matricule" placeholder="Enter provider matricule" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service</label>
+                    <textarea th:field="*{service}" class="form-control" id="service" placeholder="Enter provider service" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" th:field="*{company}" class="form-control" id="company" placeholder="Enter provider company" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

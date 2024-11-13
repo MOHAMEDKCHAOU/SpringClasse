@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Provider</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container my-5">
+    <h3>Update Provider</h3>
+    <div class="card">
+        <div class="card-body">
+            <!-- Form submission mapped to /updateProvider/{id} -->
+            <form th:action="@{/updateProvider/{id}(id=${provider.id})}"
+                  th:object="${provider}" method="post">
+
+                <div class="form-group">
+                    <label for="matricule">Matricule</label>
+                    <input type="text" th:field="*{matricule}" class="form-control"
+                           id="matricule" placeholder="Enter provider matricule" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service</label>
+                    <textarea th:field="*{service}" class="form-control" id="service"
+                              placeholder="Enter provider service" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" th:field="*{company}" class="form-control"
+                           id="company" placeholder="Enter provider company" required>
+                </div>
+
+                <!-- Hidden ID field to track the provider being updated -->
+                <input type="hidden" th:field="*{id}">
+
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

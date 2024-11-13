@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Providers List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container my-5">
+    <h3>Providers List</h3>
+    <a href="/addProvider" class="btn btn-primary mb-3">Add Provider</a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Matricule</th>
+            <th>Service</th>
+            <th>Company</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="provider : ${providers}">
+            <td th:text="${provider.id}"></td>
+            <td th:text="${provider.matricule}"></td>
+            <td th:text="${provider.service}"></td>
+            <td th:text="${provider.company}"></td>
+            <td>
+                <a th:href="@{/updateProvider/{id}(id=${provider.id})}" class="btn btn-warning btn-sm">Edit</a>
+                <a th:href="@{/deleteProvider/{id}(id=${provider.id})}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
